@@ -7,7 +7,7 @@ const Todos = () => {
     completed: boolean;
   };
 
-  const handleSuubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (input.trim() === "") {
@@ -49,11 +49,13 @@ const Todos = () => {
       <h2>Todo application</h2>
 
       <div>
-        <form onSubmit={handleSuubmit}>
+        <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="todos">Enter todo</label>
             <input
               type="text"
+              id="todos"
+              value={input}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setInput(e.target.value)
               }
