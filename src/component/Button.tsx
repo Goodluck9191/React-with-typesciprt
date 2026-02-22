@@ -1,4 +1,5 @@
 import React from 'react'
+import Input from './Input'
 
 const Button = () => {
 
@@ -9,6 +10,7 @@ const Button = () => {
   return (
     <div>
         <button onClick={handleLike}>Like </button>
+        <Input />
 
     </div>
   )
