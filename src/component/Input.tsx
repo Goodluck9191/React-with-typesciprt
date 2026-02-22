@@ -14,6 +14,8 @@ const Input = () => {
         <label htmlFor="email">Enter your email</label>
         <input
           type="email"
+          id="email"
+          value={email}
           placeholder="email"
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             setEmail(e.target.value)
