@@ -1,9 +1,12 @@
-import Button from "./component/Button";
+import Todos from "./component/Todos";
+
 function App() {
 
 
   return (
-    <Button />
+    <div>
+      <Todos />
+    </div>
   )
 }
 
