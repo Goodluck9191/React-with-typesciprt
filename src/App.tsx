@@ -27,32 +27,31 @@ function App() {
       completed: false
     }
 
-    setTodos([...todos, newTodo])
+ 
+    setTodos((prev) => [...prev, newTodo])
     setInput("")
   }
-
   function handleDelete(id: number) {
-    setTodos(todos.filter((t) => t.id !== id))
+    setTodos((prev) =>
+      prev.filter((t) => t.id !== id)
+    )
   }
-
   function handleToggle(id: number) {
-    setTodos(
-      todos.map((t) =>
+    setTodos((prev) =>
+      prev.map((t) =>
         t.id === id
           ? { ...t, completed: !t.completed }
           : t
       )
     )
   }
-
   function handleEdit(id: number, text: string) {
-    setTodos(
-      todos.map((t) =>
+    setTodos((prev) =>
+      prev.map((t) =>
         t.id === id ? { ...t, text } : t
       )
     )
   }
-
   const filteredTodos = todos.filter((todo) => {
     if (filter === "active") return !todo.completed
     if (filter === "completed") return todo.completed

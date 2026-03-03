@@ -19,10 +19,12 @@ export function TodoInput({
 
   return (
     <form onSubmit={onSubmit}>
+         <label htmlFor="todo-input">Task</label>
       <input
         value={input}
         onChange={handleChange}
         placeholder="Enter task"
+        id="todo-input"
       />
       <button type="submit">Add</button>
     </form>

@@ -41,7 +41,8 @@ export function TodoItem({
         </>
       ) : (
         <>
-          <span
+      <button
+            type="button"
             onClick={() => onToggle(todo.id)}
             style={{
               textDecoration: todo.completed
@@ -49,9 +50,12 @@ export function TodoItem({
                 : "none",
               cursor: "pointer"
             }}
+            aria-pressed={todo.completed}
           >
             {todo.text}
-          </span>
+          </button>
+
+ 
 
           <button onClick={() => setIsEditing(true)}>
             Edit

@@ -5,12 +5,20 @@ export function useLocalStorage<T>(
   initialValue: T
 ) {
   const [value, setValue] = useState<T>(() => {
-    const stored = localStorage.getItem(key)
-    return stored ? JSON.parse(stored) : initialValue
+        try {
+     const stored = localStorage.getItem(key)
+     return stored ? (JSON.parse(stored) as T) : initialValue
+  } catch {
+    return initialValue
+  }
   })
 
   useEffect(() => {
-    localStorage.setItem(key, JSON.stringify(value))
+   try {
+     localStorage.setItem(key, JSON.stringify(value))
+   } catch {
+     // no-op: keep UI functional even if persistence fails
+  }
   }, [key, value])
 
   return [value, setValue] as const
